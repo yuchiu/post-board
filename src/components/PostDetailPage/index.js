@@ -1,9 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import Moment from "react-moment";
+import { Redirect } from "react-router-dom";
 
 import "./index.scss";
 import { postAction } from "@/actions";
+import { isObjEmpty } from "@/utils/dataValidation";
+import CreateCommentForm from "./CreateCommentForm";
+import CommentListSection from "./CommentListSection";
 
 const PostDetail = ({ selectedPost = {} }) => (
   <section className="post-detail-panel">
@@ -38,12 +42,20 @@ class PostDetailPage extends React.Component {
   render() {
     const { selectedPost } = this.props;
     return (
-      <div className="post-detail-page-wrapper page-wrapper">
-        <main className="post-detail-page-main">
-          <h1 className="post-detail-page-main__title">PostDetail Page</h1>
-          <PostDetail selectedPost={selectedPost} />
-        </main>
-      </div>
+      <React.Fragment>
+        {isObjEmpty(selectedPost) ? (
+          <Redirect to="/" />
+        ) : (
+          <div className="post-detail-page-wrapper page-wrapper">
+            <main className="post-detail-page-main">
+              <h1 className="post-detail-page-main__title">PostDetail Page</h1>
+              <PostDetail selectedPost={selectedPost} />
+              <CommentListSection />
+              <CreateCommentForm />
+            </main>
+          </div>
+        )}
+      </React.Fragment>
     );
   }
 }

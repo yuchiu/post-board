@@ -5,18 +5,10 @@ export default {
       payload: commentBody
     });
   },
-
-  // TODO:
-  editComment: () => dispatch => {
+  getCommentListByPostId: postId => dispatch => {
     dispatch({
-      type: "EDIT_COMMENT"
-    });
-  },
-
-  // TODO:
-  removeComment: () => dispatch => {
-    dispatch({
-      type: "REMOVE_COMMENT"
+      type: "GET_POST_COMMENT_LIST",
+      payload: postId
     });
   }
 };

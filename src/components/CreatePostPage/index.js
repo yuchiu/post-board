@@ -7,7 +7,12 @@ import createUUID from "@/utils/createUUID";
 import { postAction } from "@/actions";
 import { DefaultButton, InlineError } from "@/components/common";
 
-const CreatePostForm = ({ handleChange, handleCreatePost, formErrors }) => (
+const CreatePostForm = ({
+  handleChange,
+  handleCreatePost,
+  formErrors,
+  postBody
+}) => (
   <form className="create-post-form">
     {formErrors.title && <InlineError text={formErrors.title} />}
     <div className="create-post-form__item">
@@ -15,6 +20,7 @@ const CreatePostForm = ({ handleChange, handleCreatePost, formErrors }) => (
       <input
         type="text"
         name="title"
+        value={postBody.title}
         className="create-post-form__item__input"
         onChange={handleChange}
       />
@@ -25,6 +31,7 @@ const CreatePostForm = ({ handleChange, handleCreatePost, formErrors }) => (
       <textarea
         type="text"
         name="post"
+        value={postBody.post}
         className="create-post-form__item__input"
         onChange={handleChange}
       />
@@ -34,6 +41,7 @@ const CreatePostForm = ({ handleChange, handleCreatePost, formErrors }) => (
       <input
         type="text"
         name="writer"
+        value={postBody.writer}
         className="create-post-form__item__input"
         onChange={handleChange}
       />
@@ -98,7 +106,7 @@ class CreatePostPage extends React.Component {
   };
 
   render() {
-    const { formErrors } = this.state;
+    const { formErrors, postBody } = this.state;
     return (
       <div className="create-post-page-wrapper page-wrapper">
         <main className="create-post-page-main">
@@ -107,6 +115,7 @@ class CreatePostPage extends React.Component {
             formErrors={formErrors}
             handleChange={this.handleChange}
             handleCreatePost={this.handleCreatePost}
+            postBody={postBody}
           />
         </main>
       </div>
