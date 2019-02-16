@@ -1,0 +1,22 @@
+@import "../../assets/css/vars.scss";
+
+.landing-page-wrapper {
+}
+
+.landing-page-main {
+}
+
+.landing-page-header {
+  text-align: center;
+  padding: $spacing-xl;
+  &__title {
+    font-size: $font-size-lg;
+  }
+  &__desc {
+    font-size: $font-size-sm;
+  }
+}
+
+.landing-page-body {
+  text-align: center;
+}

@@ -1,0 +1,45 @@
+@import "./vars.scss";
+
+@mixin defaultButton(
+  $fontSize: $font-size-md,
+  $color: $white,
+  $bgColor: $theme-lime-green,
+  $spacing: $spacing-md,
+  $borderColor: $light-grey,
+  $radius: 3px
+) {
+  padding: $spacing;
+  background-color: $bgColor;
+  border-radius: $radius;
+  font-size: $fontSize;
+  color: $color;
+  text-align: center;
+  line-height: 1;
+  display: inline-block;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus,
+  &:active & {
+    outline: none;
+  }
+}
+
+@mixin defaultInput($padding: $spacing-sm, $width: 150px) {
+  padding: $padding;
+  width: $width;
+}
+
+.pointer-cursor {
+  cursor: pointer;
+}
+
+.no-highlight {
+  user-select: none;
+}
+
+.router-link {
+  text-decoration: none;
+  color: inherit;
+}

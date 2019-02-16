@@ -1,0 +1,17 @@
+@import "../../assets/css/vars.scss";
+.about-page-wrapper {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.about-page-main {
+  &__item {
+    padding: $spacing-xl;
+  }
+  &__title {
+    font-size: $font-size-xl;
+  }
+  &__desc {
+  }
+}

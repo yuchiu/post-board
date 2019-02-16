@@ -1,0 +1,6 @@
+@import "../../../assets/css/vars.scss";
+@import "../../../assets/css/modules.scss";
+
+.button {
+  @include defaultButton();
+}

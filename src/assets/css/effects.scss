@@ -1,0 +1,40 @@
+/* Transition Animation */
+@mixin easeInOutTransition($duration: 500ms) {
+  transition: all $duration ease-in-out;
+}
+
+@mixin textShadow($range: "sm", $color: $very-dark-grey) {
+  @if $range== "xs" {
+    text-shadow: 0px 0px 3px $color;
+  }
+  @if $range== "sm" {
+    text-shadow: 0px 0px 6px $color;
+  }
+  @if $range== "md" {
+    text-shadow: 0px 0px 10px $color;
+  }
+  @if $range== "lg" {
+    text-shadow: 0px 0px 15px $color;
+  }
+  @if $range== "xl" {
+    text-shadow: 0px 0px 25px $color;
+  }
+}
+
+@mixin boxShadow($range: "sm", $color: $very-dark-grey) {
+  @if $range== "xs" {
+    box-shadow: 0px 0px 3px $color;
+  }
+  @if $range== "sm" {
+    box-shadow: 0px 0px 6px $color;
+  }
+  @if $range== "md" {
+    box-shadow: 0px 0px 10px $color;
+  }
+  @if $range== "lg" {
+    box-shadow: 0px 0px 15px $color;
+  }
+  @if $range== "xl" {
+    box-shadow: 0px 0px 25px $color;
+  }
+}

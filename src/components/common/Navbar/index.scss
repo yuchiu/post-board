@@ -1,0 +1,52 @@
+@import "../../../assets/css/vars.scss";
+@import "../../../assets/css/effects.scss";
+
+.navbar-wrapper {
+  @include easeInOutTransition();
+  @include boxShadow($color: $grey);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: $navbar-height;
+}
+.navbar-start {
+  display: flex;
+  padding: 0 $spacing-lg;
+  margin: auto;
+  align-items: center;
+  &__item {
+    padding: $spacing-sm 0px;
+    display: flex;
+    align-items: center;
+    &__logo {
+      height: 40px;
+    }
+  }
+}
+.navbar-end {
+  margin: auto;
+  padding: 0 $spacing-lg;
+  &__item {
+    padding: $spacing-sm 0px;
+  }
+}
+
+@media screen and (min-width: $MQ-sm) {
+  .navbar-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    height: $navbar-height-MQ-sm;
+  }
+  .navbar-start {
+    margin: 0 0 0 $spacing-lg;
+    width: 150px;
+  }
+  .navbar-end {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    &__item {
+      padding: 0 $spacing-lg;
+    }
+  }
+}

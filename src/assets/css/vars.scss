@@ -1,0 +1,40 @@
+/* Media Queries Break Point*/
+
+$MQ-sm: 576px;
+$MQ-md: 768px;
+$MQ-lg: 992px;
+$MQ-xl: 1200px;
+
+/* Sizes */
+
+$footer-height: 30px;
+$navbar-height: 100px;
+$navbar-height-MQ-sm: 50px;
+
+$font-size-sm: 16px;
+$font-size-md: 20px;
+$font-size-lg: 24px;
+$font-size-xl: 28px;
+
+$spacing-sm: 4px;
+$spacing-md: 8px;
+$spacing-lg: 12px;
+$spacing-xl: 16px;
+
+/* Colors */
+
+$white: #fff;
+$very-light-grey: #e0e0e0;
+$light-grey: #b1b1b1;
+$grey: #8b8b8b;
+$dark-grey: #535353;
+$very-dark-grey: #292929;
+$black: #000;
+
+/* Theme Color */
+$theme-green: #4bad67;
+$theme-lime-green: #7dce94;
+$theme-dark-grey: #3d3d3f;
+$theme-vanilla-grey: #f6f5f3;
+$theme-white: #f9f8fd;
+$theme-warning: #d87361;
