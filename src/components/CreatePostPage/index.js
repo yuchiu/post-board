@@ -86,13 +86,14 @@ class CreatePostPage extends React.Component {
   handleCreatePost = e => {
     e.preventDefault();
     const { postBody } = this.state;
-    const { createPost } = this.props;
+    const { createPost, history } = this.props;
     // title and post are required, validate before create post
     const formErrors = formValidation.createPost(postBody);
     this.setState({ formErrors });
     if (Object.keys(formErrors).length === 0) {
       const normalizedPostBody = this.normalizePostBody(postBody);
       createPost(normalizedPostBody);
+      history.push(`posts/${normalizedPostBody.id}`);
     }
   };
 

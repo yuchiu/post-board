@@ -15,18 +15,22 @@ const PostItem = ({ postItem }) => (
     <p className="post-item-panel__body post-item-panel__item">
       {postItem.post}
     </p>
+
     <h3 className="post-item-panel__writer post-item-panel__item">
       {postItem.writer}
     </h3>
-    {postItem.updatedAt ? (
-      <span className="post-item-panel__time post-item-panel__item">
-        Updated At: <Moment format="MMM DD, YYYY" date={postItem.updatedAt} />
-      </span>
-    ) : (
-      <span className="post-item-panel__time post-item-panel__item">
-        Created At: <Moment format="MMM DD, YYYY" date={postItem.createAt} />
-      </span>
-    )}
+
+    <DefaultButton cssClass="post-item-panel__view post-item-panel__item">
+      <Link
+        to={`posts/${postItem.id}`}
+        className="router-link post-item-panel__view__btn"
+      >
+        View Post
+      </Link>
+    </DefaultButton>
+    <span className="post-item-panel__time post-item-panel__item">
+      Created At: <Moment format="MMM DD, YYYY" date={postItem.createAt} />
+    </span>
   </div>
 );
 

@@ -1,13 +1,63 @@
 import React from "react";
+import { connect } from "react-redux";
+import Moment from "react-moment";
 
 import "./index.scss";
+import { postAction } from "@/actions";
 
-const PostDetailPage = () => (
-  <div className="post-detail-page-wrapper page-wrapper">
-    <main className="post-detail-page-main">
-      <h1 className="post-detail-page-main__title">PostDetail Page</h1>
-    </main>
-  </div>
+const PostDetail = ({ selectedPost = {} }) => (
+  <section className="post-detail-panel">
+    <h3 className="post-detail-panel__title post-detail-panel__item">
+      {selectedPost.title}
+    </h3>
+    <p className="post-detail-panel__body post-detail-panel__item">
+      {selectedPost.post}
+    </p>
+
+    <h3 className="post-detail-panel__writer post-detail-panel__item">
+      {selectedPost.writer}
+    </h3>
+
+    <span className="post-detail-panel__time post-detail-panel__item">
+      Created At: <Moment format="MMM DD, YYYY" date={selectedPost.createAt} />
+    </span>
+  </section>
 );
 
-export default PostDetailPage;
+class PostDetailPage extends React.Component {
+  componentDidMount() {
+    const {
+      match: {
+        params: { postId }
+      },
+      getPostDetail
+    } = this.props;
+    getPostDetail(postId);
+  }
+
+  render() {
+    const { selectedPost } = this.props;
+    return (
+      <div className="post-detail-page-wrapper page-wrapper">
+        <main className="post-detail-page-main">
+          <h1 className="post-detail-page-main__title">PostDetail Page</h1>
+          <PostDetail selectedPost={selectedPost} />
+        </main>
+      </div>
+    );
+  }
+}
+const stateToProps = state => ({
+  selectedPost: state.postReducer.selectedPost
+});
+
+const dispatchToProps = dispatch => ({
+  getPostDetail: postId => {
+    dispatch(postAction.getPostDetail(postId));
+  }
+});
+
+export default connect(
+  stateToProps,
+  dispatchToProps
+)(PostDetailPage);
