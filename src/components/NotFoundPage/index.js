@@ -5,7 +5,7 @@ import "./index.scss";
 
 const NotFoundPage = ({
   match: {
-    params: { unfoundLocation }
+    params: { unfoundLocation = "" }
   }
 }) => (
   <div className="not-found-page-wrapper page-wrapper">

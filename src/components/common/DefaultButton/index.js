@@ -3,14 +3,17 @@ import PropTypes from "prop-types";
 
 import "./index.scss";
 
-const DefaultButton = ({ children, cssClass, handleClick }) => (
-  <button className={`button ${cssClass}`} onClick={handleClick}>
+const DefaultButton = ({
+  children = "button",
+  cssClass = "",
+  handleClick = () => {}
+}) => (
+  <button className={`default-button ${cssClass}`} onClick={handleClick}>
     {children}
   </button>
 );
 
 DefaultButton.propTypes = {
-  children: PropTypes.object,
   cssClass: PropTypes.string,
 
   handleClick: PropTypes.func
