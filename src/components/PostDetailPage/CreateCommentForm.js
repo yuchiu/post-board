@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import "./CreateCommentForm.scss";
 import { DefaultButton, InlineError } from "@/components/common";
@@ -72,12 +73,12 @@ class CreateCommentForm extends React.Component {
       <form className="create-comment-form">
         {formErrors.comment && <InlineError text={formErrors.comment} />}
         <div className="create-comment-form__item">
-          <h3 className="create-comment-form__item__field">Comment</h3>
-          <input
+          <h3 className="create-comment-form__item__field">Leave Comment</h3>
+          <textarea
             type="text"
             name="comment"
             value={commentBody.comment}
-            className="create-comment-form__item__input"
+            className="create-comment-form__item__input create-comment-form__item__input--area"
             onChange={this.handleChange}
           />
         </div>
@@ -86,17 +87,20 @@ class CreateCommentForm extends React.Component {
           <input
             type="text"
             name="writer"
+            placeholder="annoymous"
             value={commentBody.writer}
             className="create-comment-form__item__input"
             onChange={this.handleChange}
           />
         </div>
-        <DefaultButton
-          cssClass="create-comment-form-item"
-          handleClick={this.handleCreateComment}
-        >
-          Submit
-        </DefaultButton>
+        <div className="create-comment-form__item create-comment-form__item--btn">
+          <DefaultButton
+            cssClass="create-comment-form__item__btn"
+            handleClick={this.handleCreateComment}
+          >
+            Submit
+          </DefaultButton>
+        </div>
       </form>
     );
   }
@@ -113,6 +117,12 @@ const dispatchToProps = dispatch => ({
     dispatch(commentAction.getCommentByPostId(postId));
   }
 });
+
+CreateCommentForm.propTypes = {
+  selectedPost: PropTypes.object.isRequired,
+  createComment: PropTypes.func.isRequired,
+  getCommentByPostId: PropTypes.func.isRequired
+};
 
 export default connect(
   stateToProps,

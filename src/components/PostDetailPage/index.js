@@ -1,32 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import Moment from "react-moment";
 import { Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import "./index.scss";
 import { postAction } from "@/actions";
 import { isObjEmpty } from "@/utils/dataValidation";
 import CreateCommentForm from "./CreateCommentForm";
 import CommentListSection from "./CommentListSection";
-
-const PostDetail = ({ selectedPost = {} }) => (
-  <section className="post-detail-panel">
-    <h3 className="post-detail-panel__title post-detail-panel__item">
-      {selectedPost.title}
-    </h3>
-    <p className="post-detail-panel__body post-detail-panel__item">
-      {selectedPost.post}
-    </p>
-
-    <h3 className="post-detail-panel__writer post-detail-panel__item">
-      {selectedPost.writer}
-    </h3>
-
-    <span className="post-detail-panel__time post-detail-panel__item">
-      Created At: <Moment format="MMM DD, YYYY" date={selectedPost.createAt} />
-    </span>
-  </section>
-);
+import PostDetail from "./PostDetail";
 
 class PostDetailPage extends React.Component {
   componentDidMount() {
@@ -48,7 +30,6 @@ class PostDetailPage extends React.Component {
         ) : (
           <div className="post-detail-page-wrapper page-wrapper">
             <main className="post-detail-page-main">
-              <h1 className="post-detail-page-main__title">PostDetail Page</h1>
               <PostDetail selectedPost={selectedPost} />
               <CommentListSection />
               <CreateCommentForm />
@@ -68,6 +49,11 @@ const dispatchToProps = dispatch => ({
     dispatch(postAction.getPostDetail(postId));
   }
 });
+
+PostDetailPage.propTypes = {
+  selectedPost: PropTypes.array.isRequired,
+  getPostDetail: PropTypes.func.isRequired
+};
 
 export default connect(
   stateToProps,

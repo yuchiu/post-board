@@ -1,7 +1,7 @@
 @import "./vars.scss";
 
 @mixin defaultButton(
-  $fontSize: $font-size-md,
+  $fontSize: $font-size-sm,
   $color: $white,
   $bgColor: $theme-lime-green,
   $spacing: $spacing-md,

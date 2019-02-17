@@ -1,15 +1,21 @@
+@import "../../assets/css/vars.scss";
+@import "../../assets/css/effects.scss";
+
 .comment-list-section {
+  padding-top: $spacing-lg;
   &__header {
+    text-align: center;
+    font-size: $font-size-lg;
   }
 }
 
 .comment-item-panel {
-  &__item {
-  }
+  padding: $spacing-lg 0;
   &__body {
+    padding: $spacing-sm 0;
   }
-  &__writer {
-  }
-  &__time {
+  &__meta {
+    &__item {
+    }
   }
 }

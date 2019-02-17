@@ -2,37 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Moment from "react-moment";
 
 import "./index.scss";
 import { DefaultButton } from "@/components/common";
-
-const PostItem = ({ postItem }) => (
-  <div className="post-item-panel">
-    <h3 className="post-item-panel__title post-item-panel__item">
-      {postItem.title}
-    </h3>
-    <p className="post-item-panel__body post-item-panel__item">
-      {postItem.post}
-    </p>
-
-    <h3 className="post-item-panel__writer post-item-panel__item">
-      {postItem.writer}
-    </h3>
-
-    <DefaultButton cssClass="post-item-panel__view post-item-panel__item">
-      <Link
-        to={`posts/${postItem.id}`}
-        className="router-link post-item-panel__view__btn"
-      >
-        View Post
-      </Link>
-    </DefaultButton>
-    <span className="post-item-panel__time post-item-panel__item">
-      Created At: <Moment format="MMM DD, YYYY" date={postItem.createAt} />
-    </span>
-  </div>
-);
+import PostList from "./PostList";
 
 const LandingPage = ({ postList = [], postListCount = 0 }) => (
   <div className="landing-page-wrapper page-wrapper">
@@ -41,26 +14,19 @@ const LandingPage = ({ postList = [], postListCount = 0 }) => (
         <h1 className="landing-page-header__title landing-page-header__item">
           Welcome to Post Board!
         </h1>
-        <h2 className="landing-page-header__desc landing-page-header__item">
-          There are currently {postListCount} posts
-        </h2>
-        <div className="landing-page-header__create-post landing-page-header__item">
-          <DefaultButton>
-            <Link
-              to="create-post"
-              className="router-link landing-page-header__create-post__btn"
-            >
-              Create Post
+        <div className="landing-page-header__meta">
+          <h2 className="landing-page-header__meta__item">
+            There are currently {postListCount} posts
+          </h2>
+          <DefaultButton cssClass="landing-page-header__meta__item">
+            <Link to="create-post" className="router-link">
+              <i className="fas fa-edit" /> Create Post
             </Link>
           </DefaultButton>
         </div>
       </section>
       <section className="landing-page-body">
-        <div className="landing-page-body__list">
-          {postList.map((postItem, i) => (
-            <PostItem key={`post-item-${i}`} postItem={postItem} />
-          ))}
-        </div>
+        <PostList postList={postList} />
       </section>
     </main>
   </div>

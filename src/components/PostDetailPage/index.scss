@@ -1,23 +1,27 @@
+@import "../../assets/css/vars.scss";
+
 .post-detail-page-wrapper {
 }
 
 .post-detail-page-main {
-  &__title {
+  width: 90%;
+  margin: auto;
+}
+
+@media screen and (min-width: $MQ-sm) {
+  .post-detail-page-main {
+    width: 80%;
   }
 }
 
-.post-detail-pannel {
-  &__item {
+@media screen and (min-width: $MQ-md) {
+  .post-detail-page-main {
+    width: 70%;
   }
+}
 
-  &__title {
-  }
-
-  &__body {
-  }
-  &__writer {
-  }
-
-  &__time {
+@media screen and (min-width: $MQ-lg) {
+  .post-detail-page-main {
+    width: 60%;
   }
 }

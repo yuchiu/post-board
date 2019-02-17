@@ -1,8 +1,33 @@
+@import "../../assets/css/vars.scss";
+@import "../../assets/css/modules.scss";
+
 .create-comment-form {
+  width: 85%;
+  margin: auto;
+  padding-top: $spacing-xl * 2;
   &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-xl 0;
+    &--btn {
+      width: 100%;
+      justify-content: flex-end;
+    }
     &__field {
     }
     &__input {
+      @include defaultInput();
+      width: 85%;
+      &--area {
+        resize: none;
+        height: 80px;
+      }
+    }
+    &__btn {
+      justify-content: center;
+      font-size: $font-size-md;
+      padding: $spacing-md;
+      width: 200px;
     }
   }
 }

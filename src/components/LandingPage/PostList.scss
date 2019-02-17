@@ -1,0 +1,54 @@
+@import "../../assets/css/vars.scss";
+@import "../../assets/css/effects.scss";
+
+.landing-post-list {
+}
+
+.post-item-panel {
+  @include boxShadow($color: $light-grey);
+  width: 90%;
+  margin: auto;
+  padding: $spacing-lg;
+  &__header {
+    padding: $spacing-sm;
+    display: flex;
+    justify-content: space-between;
+    &__item {
+      &--title {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+  &__body {
+    padding: $spacing-sm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__item {
+    }
+  }
+}
+
+@media screen and (min-width: $MQ-sm) {
+  .post-item-panel {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: $MQ-md) {
+  .post-item-panel {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: $MQ-lg) {
+  .post-item-panel {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: $MQ-xl) {
+  .post-item-panel {
+    width: 50%;
+  }
+}

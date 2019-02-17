@@ -9,33 +9,32 @@
 .landing-page-header {
   text-align: center;
   padding: $spacing-xl;
+  &__item {
+    padding: $spacing-md;
+  }
   &__title {
     font-size: $font-size-lg;
   }
-  &__desc {
-    font-size: $font-size-sm;
+  &__meta {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    &__item {
+      padding: $spacing-md;
+    }
   }
 }
 
 .landing-page-body {
   text-align: center;
-  &__list {
-  }
 }
 
-.post-item-panel {
-  &__item {
-  }
-  &__title {
-  }
-  &__body {
-  }
-  &__writer {
-  }
-  &__time {
-  }
-  &__view {
-    &__btn {
+@media screen and (min-width: $MQ-md) {
+  .landing-page-header {
+    &__meta {
+      width: 50%;
     }
   }
 }

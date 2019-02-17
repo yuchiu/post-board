@@ -1,0 +1,25 @@
+@import "../../assets/css/vars.scss";
+
+.post-detail-panel {
+  font-size: $font-size-md;
+  padding-top: $spacing-xl * 3;
+  &__item {
+    padding: $spacing-lg 0;
+  }
+
+  &__title {
+    font-size: 2em;
+  }
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
+    white-space: pre-line;
+  }
+  &__writer {
+  }
+
+  &__time {
+  }
+}

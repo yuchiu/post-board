@@ -8,8 +8,8 @@ export default (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
     case "CREATE_COMMENT":
-      newState.commentList.push(action.payload);
-      newState.selectedCommentList.push(action.payload);
+      newState.commentList.unshift(action.payload);
+      newState.selectedCommentList.unshift(action.payload);
       newState.selectedCommentCount += 1;
       return newState;
 

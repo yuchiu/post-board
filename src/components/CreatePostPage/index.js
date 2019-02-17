@@ -1,61 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import "./index.scss";
 import formValidation from "@/utils/formValidation";
 import createUUID from "@/utils/createUUID";
+import CreatePostForm from "./CreatePostForm";
 import { postAction } from "@/actions";
-import { DefaultButton, InlineError } from "@/components/common";
-
-const CreatePostForm = ({
-  handleChange,
-  handleCreatePost,
-  formErrors,
-  postBody
-}) => (
-  <form className="create-post-form">
-    {formErrors.title && <InlineError text={formErrors.title} />}
-    <div className="create-post-form__item">
-      <h3 className="create-post-form__item__field">Title</h3>
-      <input
-        type="text"
-        name="title"
-        value={postBody.title}
-        className="create-post-form__item__input"
-        onChange={handleChange}
-      />
-    </div>
-    {formErrors.post && <InlineError text={formErrors.post} />}
-    <div className="create-post-form__item">
-      <h3 className="create-post-form__item__field">Post</h3>
-      <textarea
-        type="text"
-        name="post"
-        value={postBody.post}
-        className="create-post-form__item__input"
-        onChange={handleChange}
-      />
-    </div>
-    <div className="create-post-form__item">
-      <h3 className="create-post-form__item__field">By</h3>
-      <input
-        type="text"
-        name="writer"
-        value={postBody.writer}
-        className="create-post-form__item__input"
-        onChange={handleChange}
-      />
-    </div>
-    <div className="create-post-form__item">
-      <DefaultButton
-        cssClass="create-post-form__item__btn"
-        handleClick={handleCreatePost}
-      >
-        Create
-      </DefaultButton>
-    </div>
-  </form>
-);
 
 class CreatePostPage extends React.Component {
   constructor(props) {
@@ -78,6 +29,7 @@ class CreatePostPage extends React.Component {
       normalizedPostBody.writer = "annoymous";
     }
     normalizedPostBody.createdAt = Date.now();
+    normalizedPostBody.commentCount = 0;
     return normalizedPostBody;
   };
 
@@ -110,7 +62,7 @@ class CreatePostPage extends React.Component {
     return (
       <div className="create-post-page-wrapper page-wrapper">
         <main className="create-post-page-main">
-          <h1 className="create-post-page-main__title">CreatePost Page</h1>
+          <h1 className="create-post-page-main__title">Create Post</h1>
           <CreatePostForm
             formErrors={formErrors}
             handleChange={this.handleChange}
@@ -128,6 +80,10 @@ const dispatchToProps = dispatch => ({
     dispatch(postAction.createPost(postBody));
   }
 });
+
+CreatePostPage.propTypes = {
+  createPost: PropTypes.func.isRequired
+};
 
 export default connect(
   null,

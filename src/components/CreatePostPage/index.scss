@@ -1,18 +1,12 @@
+@import "../../assets/css/vars.scss";
+
 .create-post-page-wrapper {
 }
 
 .create-post-page-main {
   &__title {
-  }
-}
-
-.create-post-form {
-  &__item {
-    &__field {
-    }
-    &__input {
-    }
-    &__btn {
-    }
+    text-align: center;
+    font-size: $font-size-lg;
+    padding: $spacing-xl * 2;
   }
 }
