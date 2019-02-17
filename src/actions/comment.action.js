@@ -5,6 +5,7 @@ export default {
       payload: commentBody
     });
   },
+
   getCommentListByPostId: postId => dispatch => {
     dispatch({
       type: "GET_POST_COMMENT_LIST",

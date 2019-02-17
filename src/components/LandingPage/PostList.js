@@ -12,7 +12,7 @@ const PostItem = ({ postItem }) => (
       <h3 className="post-item-panel__header__item post-item-panel__header__item--title">
         {postItem.title}
       </h3>
-      <h3 className="post-item-panel__header__item">by {postItem.writer}</h3>
+      <h3 className="post-item-panel__header__item">By {postItem.writer}</h3>
     </div>
 
     <div className="post-item-panel__body">

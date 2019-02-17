@@ -2,7 +2,6 @@
 .about-page-wrapper {
   width: 90%;
   margin: auto;
-  text-align: center;
 }
 
 .about-page-main {
@@ -11,7 +10,33 @@
   }
   &__title {
     font-size: $font-size-xl;
+    text-align: center;
   }
   &__desc {
+    white-space: pre-line;
+  }
+}
+
+@media screen and (min-width: $MQ-sm) {
+  .about-page-wrapper {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: $MQ-md) {
+  .about-page-wrapper {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: $MQ-lg) {
+  .about-page-wrapper {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: $MQ-xl) {
+  .about-page-wrapper {
+    width: 30%;
   }
 }

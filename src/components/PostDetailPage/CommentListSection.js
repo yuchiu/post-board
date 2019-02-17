@@ -11,7 +11,7 @@ const CommentListItem = ({ comment }) => (
   <div className="comment-item-panel">
     <p className="comment-item-panel__body">{comment.comment}</p>
     <div className="comment-item-panel__meta">
-      <h3 className="comment-item-panel__meta__item">by {comment.writer}</h3>
+      <h3 className="comment-item-panel__meta__item">By {comment.writer}</h3>
       <span className="comment-item-panel__meta__item">
         <Moment format="MMM DD, YYYY" date={comment.createAt} />
       </span>

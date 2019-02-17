@@ -15,7 +15,9 @@
     justify-content: space-between;
     &__item {
       &--title {
-        font-size: $font-size-lg;
+        font-size: $font-size-md;
+        width: 80%;
+        text-align: left;
       }
     }
   }
@@ -44,11 +46,5 @@
 @media screen and (min-width: $MQ-lg) {
   .post-item-panel {
     width: 60%;
-  }
-}
-
-@media screen and (min-width: $MQ-xl) {
-  .post-item-panel {
-    width: 50%;
   }
 }
